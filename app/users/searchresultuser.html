@@ -1,0 +1,31 @@
+<div class="modal-header">
+        <h4>Search Result - <strong style="color:green">{{itemlist[0].groups[0].groupName}}</strong></h4>
+      </div>
+      <div class="modal-body">
+            <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>User Name</th>
+                        <th>Email Address</th>
+                        <th>Usergroup</th>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="edititem in itemlist">
+                    <tr ng-repeat="group in edititem.groups">
+                      <td> {{edititem.name}}</td>
+                      <td> {{edititem.userName}}</td>
+                      <td> {{edititem.emailAddress}}</td>
+                      <td>{{group.groupName}}</td>
+                     <!-- <td><button type="button" class="btn btn-danger" ng-click="getdataforedit(edititem)">Edit</button></td>-->  
+                    </tr>
+    
+                    </tbody>
+                  </table>
+    
+       
+      </div>
+      <div class="modal-footer">
+        <button ng-click="close()" class="btn btn-secondary" data-dismiss="modal">close</button>
+      </div>

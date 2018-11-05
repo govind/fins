@@ -1,0 +1,253 @@
+[
+    {
+        "workflowId": "Direct1Net384003842",
+        "workflowName": "Test Workflow",
+        "channelType": "Direct",
+        "connectionType": "1Net",
+        "connectivityTypes": [
+            "ETG",
+            "PS"
+        ],
+        "taskList": [
+            {
+                "id": 0,
+                "name": "Task 1",
+                "input": [
+                    "FromAddress",
+                    "ToAddress"
+                ],
+                "type": "Sequential",
+                "action": "Trigger Email",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            },
+            {
+                "id": 1,
+                "name": "Task2",
+                "input": [
+                    "Destination Location"
+                ],
+                "type": "Sequential",
+                "action": "Transfer File",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            }
+        ]
+    },
+    {
+        "workflowId": "Direct1Net604539184",
+        "workflowName": "New1 Workflow1",
+        "channelType": "Direct",
+        "connectionType": "1Net",
+        "connectivityTypes": [
+            "ETG"
+        ],
+        "taskList": [
+            {
+                "id": 0,
+                "name": "Task 1",
+                "input": [
+                    "Source Location",
+                    "Destination Location"
+                ],
+                "type": "Sequential",
+                "action": "Transfer File",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            },
+            {
+                "id": 1,
+                "name": "Task 2",
+                "input": [
+                    "FromAddress",
+                    "ToAddress"
+                ],
+                "type": "Sequential",
+                "action": "Trigger Email",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            },
+            {
+                "id": 2,
+                "name": "Task 3",
+                "input": [],
+                "type": "Parallel",
+                "action": "Invoke Automation Script",
+                "deadlineForTaskCompletionInHrs": 12,
+                "output": null
+            },
+            {
+                "id": 3,
+                "name": "Task 4",
+                "input": [],
+                "type": "Sequential",
+                "action": "Perform Validation",
+                "deadlineForTaskCompletionInHrs": 2,
+                "output": null
+            }
+        ]
+    },
+    {
+        "workflowId": "1NetcoreDHPL814100705",
+        "workflowName": "New Workflow 1",
+        "channelType": "1Netcore",
+        "connectionType": "DHPL",
+        "connectivityTypes": [
+            "Sentry"
+        ],
+        "taskList": [
+            {
+                "id": 0,
+                "name": "Task 1",
+                "input": [
+                    "Source Location",
+                    "Destination Location"
+                ],
+                "type": "Sequential",
+                "action": "Transfer File",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            },
+            {
+                "id": 1,
+                "name": "Task 2",
+                "input": [
+                    "ToAddress"
+                ],
+                "type": "Parallel",
+                "action": "Trigger Email",
+                "deadlineForTaskCompletionInHrs": 2,
+                "output": null
+            }
+        ]
+    },
+    {
+        "workflowId": "1NetcoreDHPL-575301352",
+        "workflowName": "Test Workflow",
+        "channelType": "1Netcore",
+        "connectionType": "DHPL",
+        "connectivityTypes": [
+            "ETG",
+            "EWS"
+        ],
+        "taskList": [
+            {
+                "id": 0,
+                "name": "Task 1",
+                "input": [
+                    "FromAddress",
+                    "ToAddress"
+                ],
+                "type": "Sequential",
+                "action": "Trigger Email",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            },
+            {
+                "id": 1,
+                "name": "Task 2",
+                "input": [
+                    "Source Location",
+                    "Destination Location"
+                ],
+                "type": "Parallel",
+                "action": "Transfer File",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            }
+        ]
+    },
+    {
+        "workflowId": "Direct1Net1968046185",
+        "workflowName": "WF Name 2",
+        "channelType": "Direct",
+        "connectionType": "1Net",
+        "connectivityTypes": [
+            "ETG"
+        ],
+        "taskList": [
+            {
+                "id": 0,
+                "name": "Task 1",
+                "input": [
+                    "FromAddress",
+                    "ToAddress"
+                ],
+                "type": "Sequential",
+                "action": "Trigger Email",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            },
+            {
+                "id": 1,
+                "name": "Task 2",
+                "input": [
+                    "Source Location"
+                ],
+                "type": "Sequential",
+                "action": "Transfer File",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            }
+        ]
+    },
+    {
+        "workflowId": "Direct1Net1996818119",
+        "workflowName": "Workflow db",
+        "channelType": "Direct",
+        "connectionType": "1Net",
+        "connectivityTypes": [
+            "NOW"
+        ],
+        "taskList": [
+            {
+                "id": 0,
+                "name": "Task 1",
+                "input": [
+                    "Destination Location",
+                    "Source Location"
+                ],
+                "type": "Sequential",
+                "action": "Transfer File",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            }
+        ]
+    },
+    {
+        "workflowId": "Direct1Net998969889",
+        "workflowName": "test",
+        "channelType": "Direct",
+        "connectionType": "1Net",
+        "connectivityTypes": [
+            "NOW"
+        ],
+        "taskList": [
+            {
+                "id": 0,
+                "name": "task1",
+                "input": [
+                    "FromAddress",
+                    "ToAddress",
+                    "Subject"
+                ],
+                "type": "Sequential",
+                "action": "Trigger Email",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            },
+            {
+                "id": 1,
+                "name": "Task 2",
+                "input": [
+                    "Source Location",
+                    "Private Key"
+                ],
+                "type": "Sequential",
+                "action": "Transfer File",
+                "deadlineForTaskCompletionInHrs": 1,
+                "output": null
+            }
+        ]
+    }
+]

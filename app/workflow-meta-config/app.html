@@ -1,0 +1,124 @@
+<ui-header></ui-header>
+<div class="container-fluid" ng-init="init()">
+    <div class="main-container">
+            <form name="workflowConfigMetaInput" ng-submit="submitWorkflowMetaConfigValue()" novalidate>
+
+        <div class="row">
+    <div class="col-12">
+        <section class="page-header">
+                <h4>Workflow Metadata Configuration</h4>
+                <div class="header-right-content">
+                        <div class="form-inline">
+                                <div class="input-group mb-2 mr-3">
+                                <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">
+                                                <i class="material-icons">search</i>
+                                        </span>
+                                      </div>
+                          <input type="text" class="form-control" id="inputsearch" ng-model="getinputsearch" placeholder="Search by channel name">
+                          <div class="input-group-append">
+                                        <span class="input-group-text"><a herf="" ng-click="searchresult()">Go</a></span>
+                                      </div>
+                        </div>
+                          
+                        <button type="submit" class="btn btn-primary mb-2" ng-show="showsavebtn">Save</button>
+                        <button type="button" class="btn btn-primary mb-2" ng-show="showupdatebtn" ng-click="updatedata()">Update</button>
+                        </div>
+                </div>
+        </section>
+    </div>
+</div>
+    <!-- Form Design -->
+    <div class="form-input">
+               
+    <div class="row">
+        <div class="col-12">
+                <div class="form-group row">
+                        <label for="wc-channelName" class="col-sm-2 col-form-label">Channel Name</label>
+                        <div class="col-sm-3">
+                              <select name="metachannel_name" class="form-control" required ng-model="channelName" ng-change="getmetadatachanneltype()" ng ng-options="x as x for x in availableChannelName">
+                        <option value="undefined" selected>Select Channel Name</option>      
+                        </select>
+                              <span ng-show="workflowConfigMetaInput.$submitted &&  workflowConfigMetaInput.metachannel_name.$error.required" class="errorText">Select Channel Name</span>
+                              <!--<span ng-show="selectedfield" class="errorText">Select Channel Name</span>-->
+                          </div>
+                      </div>    
+
+                        <div class="form-group row">
+                          <label for="wc-channelType" class="col-sm-2 col-form-label">Core Type</label>
+                          <div class="col-sm-3">
+                                <select name="metachannel_type" class="form-control" required ng-model="channelValue" ng-options="x as x for x in configdd">
+                                        <option value="" selected>Select Core Type</option>
+                                </select>
+                                <span ng-message="myCustomValidationName" ng-show="workflowConfigMetaInput.$submitted &&  workflowConfigMetaInput.metachannel_type.$error.required" class="errorText">Select Channel Type</span>
+                            </div>
+                        </div>
+
+                              <div class="form-group row">
+                                        <label for="wc-workflowname" class="col-sm-2 col-form-label">Connectivity Types</label>
+                                        <div class="col-sm-4">
+                                                <div class="row">
+                                                        <div class="col">
+                                                                <label for="sclients" class="label-bg-clr">Input</label> 
+                                                            <select class="custom-select" multiple ng-model="available" ng-options="client as client.connectionName for client in availableclients"></select>         
+                                                        </div>
+                                                        <div class="col-2 flex-center-custom">    
+                                                            <button id="moveright" class="btn_arrow_style" type="button" value="Add Client" ng-click="moveItem(available, availableclients,selectedclients)"><i class="material-icons">
+                                                                    chevron_right
+                                                                    </i></button>
+                                                            <button id="move left" class="btn_arrow_style" type="button" value="Remove Client" ng-click="moveItem(input, selectedclients,availableclients)"><i class="material-icons">
+                                                                    chevron_left
+                                                                    </i></button>
+                                                        </div>    
+                                                            <!--<input id="moverightall" type="button" value="Add All Clients" ng-click="moveAll(availableclients,selectedclients)" />-->  
+                                                            <!--<input id="moveleftall" type="button" value="Remove All Clients" ng-click="moveAll(selectedclients,availableclients)" />-->
+                                                        <div class="col">
+                                                            <label for="sclients" class="label-bg-clr">Selected</label>                                                    
+                                                            <select name="selectedclients"  class="custom-select" multiple ng-model="input" ng-options="client as client.connectionName for client in selectedclients"></select>
+                                                            
+                                                        </div>
+                                            </div>
+                                    </div>
+                                </div>
+                               <!-- Button alignment -->
+                               <div class="form-group row">
+                                       <div class="offset-md-2 button-order-spacing">
+                                                <button type="button" name="mappingform" class="btn btn-primary" ng-click="savemapping()">Add Mapping</button>
+                                        </div>
+                        </div>
+                        </div>
+                        <div class="col-12 mt-5" >
+                        <div class="form-group row">
+                                <label for="wc-workflowname" class="col-sm-2 col-form-label">Channel Name</label>
+                                <div class="col-sm-3">
+                                  <input type="text" class="form-control" required id="wc-workflowchannelname" name="workflowchannelname" ng-model="workflowchannelname" placeholder="Enter Channel Name">
+                                
+                                </div>
+                                <button type="button" class="btn btn-primary" ng-click="addnewchannel()">Add Channel</button>
+                              </div>
+
+                              <div class="form-group row">
+                                        <label for="wc-workflowname" class="col-sm-2 col-form-label">Connectivity Type</label>
+                                        <div class="col-sm-3">
+                                          <input type="text" class="form-control" required id="wc-workflowconnectivityname" name="workflowcnnectivityname" ng-model="workflowcnnectivityname" placeholder="Enter Connectivity Type">
+                                         
+                                        </div>
+                                        <button type="button" class="btn btn-primary" ng-click="addnewconnectivity()">Add Connectivity</button>
+                                      </div> 
+        </div>
+    </div>
+
+<!--<div class="msg">{{columns}}</div>
+<div class="msg">{{wfconfig}}</div>-->
+
+<div class="page-ctrl-btn col-12">
+    <input type="reset" class="btn btn-light" ng-click="resetform()" value="Cancel">
+    <button type="submit" class="btn btn-primary" ng-show="showsavebtn">Save</button>
+    <button type="button" class="btn btn-primary" ng-show="showupdatebtn" ng-click="updatedata()">Update</button>
+</div>
+
+</div>
+</form>
+<!-- End:Form Design -->
+</div>
+</div>

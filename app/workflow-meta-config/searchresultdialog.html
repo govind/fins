@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4>Search Result</h4>
+  </div>
+  <div class="modal-body">
+        <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th>Channel Name</th>
+                    <th>Channel Type</th>
+                    <th>Connection Type</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="edititem in itemlist">
+                  <td> {{edititem.channelName}}</td>
+                  <td> {{edititem.channelType}}</td>
+                  <td> {{edititem.connectionTypes}}</td>
+                  <td><button type="button" class="btn btn-danger" ng-click="getdataforedit(edititem)">Edit</button></td>  
+                </tr>
+
+                </tbody>
+              </table>
+
+   
+  </div>
+  <div class="modal-footer">
+    <button ng-click="close()" class="btn btn-secondary" data-dismiss="modal">close</button>
+  </div>

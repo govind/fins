@@ -1,0 +1,36 @@
+{
+    "channels": [
+        {
+            "channelId": 1,
+            "channelName": "Direct",
+            "channelType": "Clear Touch",
+            "connectionTypes": [
+                {
+                    "connectionId": 0,
+                    "connectionName": "1Net"
+                }
+            ]
+        },
+        {
+            "channelId": 2,
+            "channelName": "1Netcore",
+            "channelType": "Signature",
+            "connectionTypes": [
+                {
+                    "connectionId": 1,
+                    "connectionName": "DHPL"
+                }
+            ]
+        }
+    ],
+    "connectivityTypes": [
+        {
+            "connectionId": 0,
+            "connectionName": "1Net"
+        },
+        {
+            "connectionId": 1,
+            "connectionName": "DHPL"
+        }
+    ]
+}

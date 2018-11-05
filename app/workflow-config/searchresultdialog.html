@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h4>Search Result</h4>
+  </div>
+  <div class="modal-body">
+        <div class="table-responsive" id="settableheight">
+        <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th>Workflow Name</th>
+                    <th>Task & Details</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody >
+                <tr ng-repeat="edititem in itemlist">
+                  <td> {{edititem.workflowName}}</td>
+                  <td> 
+                    <ol  >
+                       <li ng-repeat="name in edititem.taskList">{{name.name}}</li>
+                    </ol>
+                  </td>
+                  <td><button type="button" class="btn btn-danger" ng-click="getdataforedit(edititem)">Edit</button></td>  
+                </tr>
+
+                </tbody>
+              </table>
+
+   
+  </div>
+  <div class="modal-footer">
+    <button ng-click="close()" class="btn btn-secondary" data-dismiss="modal">close</button>
+  </div>

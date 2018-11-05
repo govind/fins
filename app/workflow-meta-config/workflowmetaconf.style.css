@@ -1,0 +1,130 @@
+
+.wc-process-task{
+    padding:20px 15px;
+    position: relative;
+}
+.wc-process-task:nth-child(even){
+    background-color:#f9f9f9;
+    border-top:2px solid #dfdddd;
+}
+
+.addfields{
+    margin-top: 4px;
+    padding-left: 6px;
+    font-weight: bold;
+    display: flex;
+    color: #0b90e9 !important;
+    cursor: pointer;
+    align-items: center;
+}
+
+.addfields i{
+    padding-right:6px;
+}
+
+.custom-inputcheck{
+    padding-left:0px;
+
+}
+
+.custom-inputcheck label{
+    padding: 0px 20px;
+font-weight: bold;
+}
+
+.label-bg-clr{
+    background-color:#efefef;
+    width:100%;
+    text-align: center;
+    font-size: 14px;
+    color: #2E8BC9;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding:6px 0px;
+}
+
+.wf-delete{
+    position: absolute;
+    right: 19px;
+    font-weight: bold;
+    color: #fff;
+    /* text-decoration: underline; */
+    background-color: #0b90e9;
+    padding: 10px 12px 10px;
+    display: flex;
+    vertical-align: middle;
+
+}
+
+.wf-delete i{
+    padding-right: 5px;
+    font-size: 19px;
+}
+
+.custom-txt-btn{
+}
+
+.custom-txt-btn i{
+    color:#0b90e9;
+}
+
+
+.custom-txt-btn .addfields{
+    color: #0b90e9;
+}
+
+.page-ctrl-btn{
+    background-color: #efefef;
+    padding: 20px;
+    text-align: center;
+}
+
+.page-ctrl-btn button{
+    margin:0px 10px;
+}
+
+.processbtn-removed{
+    display:none;
+}
+
+.processbtn-active{
+display:flex;
+}
+
+#inputGroupPrepend{
+    padding: 0px 5px;
+    background-color: #fff;
+}
+
+.btn_arrow_style{
+    border: 1px solid #2E8BC9;
+    border-radius: 50%;
+    padding: 3px;
+    width: 32px;
+    height: 32px;
+
+}
+
+.btn_arrow_style i{
+    color: #2E8BC9;
+}
+
+.flex-center-custom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 17px;
+    
+}
+
+.flex-center-custom button{
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.button-order-spacing{
+
+}
+.button-order-spacing button{
+    margin:0px 10px;
+}

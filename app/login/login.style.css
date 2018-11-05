@@ -1,0 +1,88 @@
+html, body {
+    height: 100%;
+}
+
+.ui-view-container{
+height:100%;
+}
+
+.login-body{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    height:100%;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    background-color: #efefef;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    box-shadow: 2px 1px 7px 2px rgba(0, 0, 0, 0.1);
+}
+
+.login-leftbar{
+    background: #fff;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 20px; 
+}
+
+.login-leftbar img{
+    width:102px;
+}
+.login-leftbar p{
+    font-size: 15px;
+color: #8e8b8b;
+padding-top: 10px;
+}
+
+.login-leftbar:after{
+    position: absolute;
+    content: '';
+    background-image: url(/img/login-left.png);
+    width: 133px;
+    height: 143px;
+    background-size: contain;
+    bottom: 0px;
+    right: 0px;
+    background-repeat: no-repeat;
+}
+
+.login-rightbar{
+    padding: 65px 35px;
+  
+}
+
+.login-rightbar h1{
+    text-align: left;
+    color: #FF6600;
+    font-weight: 600;
+    font-size: 30px;
+}
+.login-rightbar .form-control{
+    border-width: 0px 0px 1px 0px;
+    background: inherit;
+    border-color: #000;
+    border-radius: 0px;
+    font-size: 13px;
+    padding: 2px 10px 2px 0px;
+}
+.login-rightbar button{
+    margin-top: 35px;
+}
+
+
+.login-cpytxt {
+    position: absolute;
+    bottom: -48px;
+    left: -33px;
+    color: #c7c4c4;
+}

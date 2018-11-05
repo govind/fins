@@ -1,0 +1,119 @@
+<ui-header></ui-header>
+<div class="container-fluid" ng-init="init()">
+    <div class="main-container tab-maincontainer">
+    
+            <div class="row">
+                    <div class="col-12">
+                        <section class="tab-inline-page-header">
+                            <div class="tab-inline-header">
+                                    <ul class="nav nav-pills">
+                                            <li ng-class="{active:isSet(1)}"><a href ng-click="setTab(1)">Add user</a></li>
+                                            <li ng-class="{active:isSet(2)}"><a href ng-click="setTab(2)">User group</a></li>
+                                        </ul>
+                            </div>
+                                
+                                
+                        </section>
+                    </div>
+                </div>
+
+
+        <!-- Tab 1 Form field-->
+        <div ng-show="isSet(1)">
+                        <form name="usersInput" ng-submit="usersInput.$valid && submituserlist()" novalidate> 
+                        <div class="header-right-content rightsearchtab">
+                                        <div class="form-inline">
+                                                        <div class="input-group mr-3">
+                                                        <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="inputGroupPrepend">
+                                                                        <i class="material-icons">search</i>
+                                                                </span>
+                                                        </div>
+                                                  <input type="text" class="form-control" id="inputsearch" ng-model="getinputsearch" placeholder="Search">
+                                                  <div class="input-group-append">
+                                                                <span class="input-group-text"><a herf="" ng-click="usersearchresult()" >Go</a></span>
+                                                              </div>
+                                                </div>
+                                                  
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                               
+                                                </div>
+                                </div>
+    
+                        <div class="form-group row">
+                                <label for="wc-workflowname" class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-3">
+                                  <input type="text" class="form-control" required name="addname" ng-model="name" placeholder="Enter Name">
+                                  <span ng-show="usersInput.$submitted &&  usersInput.addname.$error.required" class="errorText">Name is a required field</span>
+                                </div>
+                              </div>
+                        
+                              <div class="form-group row">
+                                    <label for="wc-workflowname" class="col-sm-2 col-form-label">Username</label>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" required name="username_txt" ng-model="username" placeholder="Enter Username">
+                                      <span ng-show="usersInput.$submitted &&  usersInput.username_txt.$error.required" class="errorText">Username is a required field</span>
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                        <label for="wc-workflowname" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-3">
+                                          <input type="text" class="form-control" required name="emailid_txt" ng-model="emailid" placeholder="Enter Email">
+                                          <span ng-show="usersInput.$submitted &&  usersInput.emailid_txt.$error.required" class="errorText">Emailid is a required field</span>
+                                        </div>
+                                      </div>
+
+                        <div class="form-group row">
+                                <label for="wc-channelType" class="col-sm-2 col-form-label">User Group</label>
+                                <div class="col-sm-3">
+                                      <select name="usergroup_user" class="form-control" required ng-model="usergroupname" ng-options="x as x for x in usergroup">
+                                              <option value="" selected>Select User Group</option>
+                                      </select>
+                                      <span ng-show="usersInput.$submitted &&  usersInput.usergroup_user.$error.required" class="errorText">Usergroup is a required field</span>
+                                  </div>
+                              </div>
+                              <div class="page-ctrl-btn col-12">
+                                    <input type="reset" class="btn btn-light" value="Cancel"  ng-click="resetform()">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                </form>
+        </div>
+        <!-- Tab 2 Form field-->
+        <div ng-show="isSet(2)">
+                        <div class="header-right-content rightsearchtab">
+                                        <div class="form-inline">
+                                                        <div class="input-group mr-3">
+                                                        <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="inputGroupPrepend">
+                                                                        <i class="material-icons">search</i>
+                                                                </span>
+                                                        </div>
+                                                  <input type="text" class="form-control" id="inputsearch" ng-model="getinputsearch" placeholder="Search">
+                                                  <div class="input-group-append">
+                                                                <span class="input-group-text"><a herf="" ng-click="searchresult()">Go</a></span>
+                                                              </div>
+                                                </div>
+                                                  
+                                                <button type="submit" class="btn btn-primary" style="display:none">Save</button>
+                                               
+                                                </div>
+                                </div>
+                <form name="usergroupInput" ng-submit="usergroupInput.$valid && submitusergrouplist()" novalidate>
+
+                        <div class="form-group row">
+                                <label for="wc-channelType" class="col-sm-2 col-form-label">User Group</label>
+                                <div class="col-sm-3">
+                                     <input type="text" class="form-control" required name="newusergroup_name" ng-model="addusergroupname" placeholder="Enter Usergroup Name">
+                                     <span ng-show="usergroupInput.$submitted &&  usergroupInput.newusergroup_name.$error.required" class="errorText">Usergroup is a required field</span>
+                                </div>
+                                  <button type="button" class="btn btn-primary" ng-click="addusergroup()">Add Usergroup</button>
+                              </div>
+
+                              <div class="page-ctrl-btn col-12" style="display:none">
+                                    <input type="button" class="btn btn-light" value="Cancel"  ng-click="resetform()">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                </form>
+        </div>
+</div>
+</div>

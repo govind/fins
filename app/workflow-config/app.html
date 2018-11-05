@@ -1,0 +1,163 @@
+<ui-header></ui-header>
+<div class="container-fluid" ng-init="init()">
+    <div class="main-container">
+            <form name="workflowConfigInput" ng-submit="workflowConfigInput.$valid && submitWorkflowConfigValue()" novalidate>
+
+        <div class="row">
+    <div class="col-12">
+        <section class="page-header">
+                <h4>Workflow Configuration</h4>
+                <div class="header-right-content">
+                        <div class="form-inline">
+                                        <div class="input-group mb-2 mr-3">
+                                        <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend">
+                                                        <i class="material-icons">search</i>
+                                                </span>
+                                        </div>
+                                  <input type="text" class="form-control" id="inputsearch" ng-model="getinputsearch" placeholder="Search">
+                                  <div class="input-group-append">
+                                                <span class="input-group-text"><a herf="" ng-click="searchresult()">Go</a></span>
+                                              </div>
+                                </div>
+                                  
+                                <button type="submit" class="btn btn-primary mb-2" ng-show="showsavebtn">Save</button>
+                                <button type="button" class="btn btn-primary mb-2" ng-show="showupdatebtn" ng-click="updatedata()">Update</button>
+                                </div>
+                </div>
+        </section>
+    </div>
+</div>
+    <!-- Form Design -->
+    <div class="form-input">
+               
+    <div class="row">
+        <div class="col-12">
+                
+                        <div class="form-group row">
+                          <label for="wc-channelType" class="col-sm-2 col-form-label">Channel Type</label>
+                          <div class="col-sm-3">
+                                <select name="channel_type" class="form-control" required ng-focus="onchannelselectfocus()" ng-model="channelValue" ng-options="x as x for x in configdd" ng-change="selectconnectivitytype()">
+                                        <option value="" selected>Select Channel Type</option>
+                                </select>
+                                <span ng-show="workflowConfigInput.$submitted &&  workflowConfigInput.channel_type.$error.required" class="errorText">Channel Type Field cannot be empty</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                                        <label for="wc-channelType" class="col-sm-2 col-form-label">Core Type</label>
+                                        <div class="col-sm-3">
+                                              <select name="metachannel_type" class="form-control" required ng-model="coretypevalue" ng-options="x as x for x in coretypeName">
+                                                      <option value="" selected>Select Core Type</option>
+                                              </select>
+                                              <span ng-show="workflowConfigInput.$submitted &&  workflowConfigInput.metachannel_type.$error.required" class="errorText">Select Core Type</span>
+                                          </div>
+                                      </div>
+
+                        <div class="form-group row">
+                                <label for="wc-channelType" class="col-sm-2 col-form-label">Connection Type</label>
+                                <div class="col-sm-3">
+                                    <select name="connection_type" class="form-control" ng-value="getworkflowconnectiontype" required ng-model="connectionValue" ng-options="x as x for x in configconnectivityName">
+                                            <option value="" selected>Select Connection Type</option>
+                                    </select>
+                                    <span ng-show="workflowConfigInput.$submitted &&  workflowConfigInput.connection_type.$error.required" class="errorText">Connection Type Field cannot be empty</span>
+                                </div>
+                              </div>
+                        <div class="form-group row">
+                                <label for="wc-workflowname" class="col-sm-2 col-form-label">Stake Holder/Connectivity Type</label>
+                                <div class="col-sm-4 custom-inputcheck">
+                                        <div>
+                                        <label ng-repeat="cTypeName in cType" >
+                                                <input
+                                                  type="checkbox"
+                                                  name="selectedFruits[]"
+                                                  value="{{cTypeName}}"
+                                                  ng-checked="selection.indexOf(cTypeName) > -1"
+                                                  ng-click="toggleSelection(cTypeName)"
+                                                        required
+                                                > {{cTypeName}}
+                                              </label>
+                                        </div>
+                                        <div style="padding-left: 16px;">
+                                              <span ng-show="selection.length <= 0 && workflowConfigInput.$submitted &&  workflowConfigInput.$error.required" class="errorText">Connectivity Type is a required field</span>
+                                        </div>
+                                    </div>
+                              </div>
+
+                        <div class="form-group row">
+                                <label for="wc-workflowname" class="col-sm-2 col-form-label">Workflow Name</label>
+                                <div class="col-sm-3">
+                                  <input type="text" class="form-control" required id="wc-workflowdataname" name="workflowname" ng-value="getworkflowname" ng-model="workflowname" placeholder="Enter Workflow Name">
+                                  <span ng-show="workflowConfigInput.$submitted &&  workflowConfigInput.workflowname.$error.required" class="errorText">Workflow Name is a required field</span>
+                                </div>
+                              </div>
+                
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="row mt-3">
+                <h4 class="col-sm-2">Process Tasks</h4>
+                <div class="col-sm-3 d-flex custom-txt-btn" style="text-align: left;">
+                        <button type="button" class="addfields" ng-attr-id="{{$index}}" ng-click="addNewColumn($index)"><i class="material-icons">add_circle_outline</i>Add Task</button>
+            </div>
+            </div>
+
+            <div class="wc-process-container">
+                        <div class="wc-process-task" ng-repeat="column in columns track by $index" ng-attr-id="{{$index}}">
+                                <div >
+                             <!-- Test --> 
+                             <button type="button" class="remove wf-delete"  ng-class="columns.length == 1 ? 'processbtn-removed':'processbtn-active'"  ng-click="removeColumn($index)"><i class="material-icons">
+                                    clear
+                                    </i>Remove</button> 
+                             <!-- End Test-->
+                                <div class="form-group row">
+                                        <label for="wc-workflowname" class="col-sm-2 col-form-label">Task Name</label>
+                                        <div class="col-sm-3">
+                                          <input type="text" name="name" class="form-control" id="wc-workflowtaskname" ng-model="column.name" placeholder="Enter Task Name" required>
+                                          <span ng-show="workflowConfigInput.$submitted &&  workflowConfigInput.name.$error.required" class="errorText">Task Name is a required field</span>
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="wc-workflowname" class="col-sm-2 col-form-label">Task Type</label>
+                                        <div class="col-sm-3">
+                                                <select name="data_type" class="form-control" required ng-model="column.type" ng-options="item as item for item in dataType">
+                                                        <option value="" selected>Select Task Type</option>
+                                                       </select> 
+                                                       <span ng-show="workflowConfigInput.$submitted &&  workflowConfigInput.data_type.$error.required" class="errorText">Task Type is a required field</span>               
+                                        </div>
+                                </div>
+                               
+                                <task-list-directive action="column.action" selectedclients="column.input" availableclients="availableclients"  ng-attr-id="{{$index}}"></task-list-directive>
+                                <div class="form-group row">
+                                        <label for="wc-workflowname" class="col-sm-2 col-form-label">Deadline for the Task in Hrs</label>
+                                        <div class="col-sm-3">
+                                          <input type="number" class="form-control" name="number" id="wc-taskdeadlinename" ng-model="column.deadlineForTaskCompletionInHrs" placeholder="Enter Hour" required>
+                                          <span ng-show="workflowConfigInput.$submitted && workflowConfigInput.number.$error.required" class="errorText">Task Deadline is a required field</span>
+                                        </div>
+                                </div>
+                             </div>  
+                        </div>
+            </div>
+
+
+        </div>
+    </div>
+
+<div class="msg">{{columns}}</div>
+<!--<div class="msg">{{wfconfig}}</div>-->
+
+<div class="page-ctrl-btn col-12">
+    <input type="reset" class="btn btn-light" value="Cancel"  ng-click="resetform()">
+    <button type="submit" class="btn btn-primary mb-2" ng-show="showsavebtn">Save</button>
+    <button type="button" class="btn btn-primary mb-2" ng-show="showupdatebtn" ng-click="updatedata()">Update</button>
+</div>
+
+</div>
+</form>
+<!-- End:Form Design -->
+
+      
+</div>
+</div>

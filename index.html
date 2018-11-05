@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Zelle Application</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+<link href="app/index.css" rel="stylesheet">
+<link href="app/template/zlheader/header.style.css" rel="stylesheet">
+<link href="app/workflow-config/workflowconf.style.css" rel="stylesheet">
+<link href="app/workflow-meta-config/workflowmetaconf.style.css" rel="stylesheet">
+<link href="app/login/login.style.css" rel="stylesheet">
+<link href="app/css/angular-toastr.css" rel="stylesheet">
+<link href="vendor/normalize-css/normalize.css" rel="stylesheet">
+
+
+
+<script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
+<script src="vendor/angular/angular.min.js"></script>
+<script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.1.0.js"></script>
+<script src="app/app.module.js"></script>
+<script src="app/app.routes.js"></script>
+
+</head>
+
+
+<body>
+
+<div ui-view=""  class="ui-view-container"></div>
+
+
+
+
+<script src="app/js/toastr.js"></script>
+<script src="app/login/login.components.js"></script>
+<script src="app/template/zlheader/header.components.js"></script>
+<script src="app/workflow-config/workflowconf.components.js"></script>
+<script src="app/workflow-meta-config/workflowmetaconf.components.js"></script>
+<script src="app/users/users-components.js"></script>
+<script src="app/workflow-config/multiselect.js"></script>
+</body>
+</html>
